@@ -29,7 +29,11 @@
 
 #include "RTE_Components.h"
 #include CMSIS_device_header
-#include "irq_ctrl.h"
+#if __has_include("irq_ctrl.h")
+  #include "irq_ctrl.h"
+#else
+  #include "os_tick.h" // CMSIS 5.2.0
+#endif
 
 /* The function called by the RTOS port layer after it has managed interrupt
 entry. */
