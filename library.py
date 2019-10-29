@@ -17,6 +17,7 @@
 
 # See https://github.com/frankleonrose/FreeRTOS_M0 sample project.
 
+import sys
 from os.path import isdir, join, realpath
 
 Import('env')
@@ -25,6 +26,11 @@ build_flags = env.ParseFlags(env['BUILD_FLAGS'])
 defines = {k: v for (k, v) in build_flags.get("CPPDEFINES")}
 
 mcu_family = defines.get("FREERTOS_MCU_FAMILY")
+if mcu_family is None:
+    sys.stderr.write("Error: FREERTOS_MCU_FAMILY not defined. Please add it to your build_flags.\n"
+                     "Example: build_flags = -D FREERTOS_MCU_FAMILY=ARM_CM0\n")
+    env.Exit(1)
+
 heap_implementation = defines.get("FREERTOS_HEAP_IMPLEMENTATION", "heap_1.c")
 
 global_env = DefaultEnvironment()
