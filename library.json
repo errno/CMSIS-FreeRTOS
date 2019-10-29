@@ -1,0 +1,18 @@
+{
+  "name": "CMSIS-FreeRTOS",
+  "build": {
+    "includeDir": "Source/Include",
+    "libArchive": false,
+    "flags": [
+      "-I CMSIS/RTOS2/FreeRTOS/Include",
+      "-I CMSIS/RTOS2/FreeRTOS/Include1",
+      "-I Source/Include"
+    ],
+    "extraScript": "library.py",
+    "dependencies": [
+      {
+          "name": "CMSIS_5"
+      }
+    ]
+  }
+}
