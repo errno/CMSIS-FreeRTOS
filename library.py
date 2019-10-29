@@ -15,7 +15,7 @@
 # In addition, it is necessary to place FreeRTOSConfig.h and RTE_Components.h
 # files in the project source directory.
 
-# See https://github.com/frankleonrose/FreeRTOS_M0 sample project.
+# See https://github.com/frankleonrose/FreeRTOS_Start sample project.
 
 import sys
 from os.path import isdir, join, realpath
