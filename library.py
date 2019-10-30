@@ -31,7 +31,7 @@ if mcu_family is None:
                      "Example: build_flags = -D FREERTOS_MCU_FAMILY=ARM_CM0\n")
     env.Exit(1)
 
-heap_implementation = defines.get("FREERTOS_HEAP_IMPLEMENTATION", "heap_1.c")
+heap_implementation = defines.get("FREERTOS_HEAP_IMPLEMENTATION", "1")
 
 global_env = DefaultEnvironment()
 platform = global_env.PioPlatform()
@@ -52,6 +52,6 @@ env.Append(
         "+<Source/*.c>",
         "+<Source/portable/*.c>",
         "+<Source/portable/GCC/%s/*.c>" % mcu_family,
-        "+<Source/portable/MemMang/%s>" % heap_implementation,
+        "+<Source/portable/MemMang/heap_%s.c>" % heap_implementation,
     ]
 )
