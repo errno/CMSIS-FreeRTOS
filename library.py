@@ -23,7 +23,7 @@ from os.path import isdir, join, realpath
 Import('env')
 
 build_flags = env.ParseFlags(env['BUILD_FLAGS'])
-defines = {k: v for (k, v) in build_flags.get("CPPDEFINES")}
+defines = {item[0]: item[1] for item in build_flags.get("CPPDEFINES") if len(item)==2}
 
 mcu_family = defines.get("FREERTOS_MCU_FAMILY")
 if mcu_family is None:
