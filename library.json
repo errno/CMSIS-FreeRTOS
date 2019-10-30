@@ -6,7 +6,8 @@
     "flags": [
       "-I CMSIS/RTOS2/FreeRTOS/Include",
       "-I CMSIS/RTOS2/FreeRTOS/Include1",
-      "-I Source/Include"
+      "-I Source/Include",
+      "-I PlatformIO"
     ],
     "extraScript": "library.py",
     "dependencies": [
